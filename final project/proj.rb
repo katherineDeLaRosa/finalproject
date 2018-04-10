@@ -1,10 +1,12 @@
 require 'sinatra'
-#require 'json'
-#require 'httparty'
+require 'spotify-client'
+require 'rspotify'
+#links to info: https://github.com/guilhermesad/rspotify
+#https://github.com/icoretech/spotify-client
 
 
 get '/' do
-	"sign in / sign up link"
+	erb :main
 end
 get '/group' do 
 	"group code:"
