@@ -1,12 +1,18 @@
 require 'sinatra'
-require 'spotify-client'
-require 'rspotify'
+#require 'spotify-client'
+#require 'rspotify'
 #links to info: https://github.com/guilhermesad/rspotify
 #https://github.com/icoretech/spotify-client
 
 
 get '/' do
 	erb :main
+end
+get '/sign_in' do
+	erb :sign
+end
+get '/sign_up' do
+	erb :signup
 end
 get '/group' do 
 	"group code:"
