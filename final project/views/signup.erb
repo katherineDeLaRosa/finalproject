@@ -31,19 +31,23 @@
 
 <body class="text-center">
     <br><br><br><br><br>
-    <form class="form-signup">
+    <form class="form-signup" action="/created" method="POST">
       <img src="http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234710/Chihuahua-On-White-03.jpg" alt="" width="135" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Creat your account:</h1>
+      <label for="inputFname" class="sr-only">First Name</label>
+      <center><input type="text" style="width: 200px" id="inputFname" class="form-control" placeholder="First Name" required="" autofocus="" name="firstname"></center>
+      <label for="inputLname" class="sr-only">Last Name</label>
+      <center><input type="text" style="width: 200px" id="inputLname" class="form-control" placeholder="Last Name" required="" autofocus="" name="lastname"></center>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <center><input type="email" style="width: 200px" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""></center>
+      <center><input type="email" style="width: 200px" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="email"></center>
       <label for="inputPassword" class="sr-only">Password</label>
-      <center><input type="password" style="width: 200px" id="inputPassword" class="form-control" placeholder="Password" required=""></center>
+      <center><input type="password" style="width: 200px" id="inputPassword" class="form-control" placeholder="Password" required="" name="password"></center>
       <div class="checkbox mb-3">
       </div>
       <center><button style="width: 100px" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button></center>
-      <center><p class="mt-4 mb-3 text-muted">Already have an account? <a href="/sign_in">Sign In</a></p></center>
-      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
+    <center><p class="mt-4 mb-3 text-muted">Already have an account? <a href="/sign_in">Sign In</a></p></center>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
