@@ -43,6 +43,14 @@ end
 get '/sign_up' do
 	erb :signup
 end
+get '/accinfo' do
+  if @@sig == false
+    redirect '/sign_in'
+  end
+  if @@curracc.logged == true
+    erb :myacc
+  end
+end
 get '/account' do
   if @@sig == false
     redirect '/sign_in'
