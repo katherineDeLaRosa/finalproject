@@ -12,7 +12,7 @@ else
   DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/fpro.db")
 end
 
-class Post
+class User
     include DataMapper::Resource
     property :id, Serial
     property :fname, String
@@ -31,9 +31,12 @@ end
 DataMapper.finalize
 
 # automatically create the post table
-Post.auto_upgrade!
+User.auto_upgrade!
+
+this = false
 
 get '/' do
+  this = true
   @@sig = false
 	erb :main
 end
@@ -44,6 +47,9 @@ get '/sign_up' do
 	erb :signup
 end
 get '/accinfo' do
+  if this == false
+    redirect '/'
+  end
   if @@sig == false
     redirect '/sign_in'
   end
@@ -52,6 +58,9 @@ get '/accinfo' do
   end
 end
 get '/account' do
+  if this == false
+    redirect '/'
+  end
   if @@sig == false
     redirect '/sign_in'
   end
@@ -60,16 +69,16 @@ get '/account' do
   end
 end
 get '/loggt' do
+  if this == false
+    redirect '/'
+  end
   @@sig = false
   @@curracc.logged = false
   redirect '/'
 end
 post '/created' do
-  accts = Post.all
-  accts.each do |acct|
-    if acct.email == params["email"]
-      redirect '/sign_up'
-    end
+  if User.first(email: params["email"])
+      redirect 'sign_up'
   end
   if (params["email"] && params["password"] && params["firstname"] && params["lastname"])
     emai = params["email"]
@@ -77,7 +86,7 @@ post '/created' do
     fir = params["firstname"]
     las = params["lastname"]
     if emai.length != 0 && pass.length != 0
-      p = Post.new
+      p = User.new
       p.email = emai
       p.password = pass
       p.fname = fir
@@ -92,16 +101,12 @@ post '/created' do
   redirect '/sign_in'
 end
 post '/signed' do
-  accts = Post.all
-  accts.each do |acct|
-    if acct.email == params["email"]
-      if acct.password == params["password"]
-        @@curracc = acct
-        @@curracc.logged = true
-        @@sig = true
-        redirect '/account'
-      end
-    end
+  u = User.first(email: params["email"])
+  if u && u.password == params["password"]
+    @@curracc = u
+    @@curracc.logged = true
+    @@sig = true
+    redirect '/account'
   end
   redirect '/sign_in'
 end
