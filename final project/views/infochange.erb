@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Final Exam</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/account">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+              <a class="nav-link" href="/accinfo">My Account <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/loggt">Log Out <span class="sr-only">(current)</span></a>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+  <title>Final Exam</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="text-center">
+    <br><br><br><br><br>
+    <form class="form-signup" action="/changed" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal">Insert new Information</h1>
+      <label for="inputFname" class="sr-only">First Name</label>
+      <center><input type="text" style="width: 200px" id="inputFname" class="form-control" placeholder="First Name" required="" autofocus="" name="firstname"></center>
+      <label for="inputLname" class="sr-only">Last Name</label>
+      <center><input type="text" style="width: 200px" id="inputLname" class="form-control" placeholder="Last Name" required="" autofocus="" name="lastname"></center>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <center><input type="email" style="width: 200px" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="email"></center>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <center><input type="password" style="width: 200px" id="inputPassword" class="form-control" placeholder="Password" required="" name="password"></center>
+      <div class="checkbox mb-3">
+      </div>
+      <center><button style="width: 100px" class="btn btn-lg btn-primary btn-block" type="submit">Update</button></center>
+    </form>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

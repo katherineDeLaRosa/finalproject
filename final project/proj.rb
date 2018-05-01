@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
+require 'combine_pdf'
 #links to info: https://github.com/guilhermesad/rspotify
 #https://github.com/icoretech/spotify-client
 
@@ -41,10 +42,64 @@ get '/' do
 	erb :main
 end
 get '/sign_in' do
+  this = true
 	erb :signin
 end
 get '/sign_up' do
+  this = true
 	erb :signup
+end
+
+post '/upload' do
+  files = params["files"]
+  pdfFile = CombinePDF.new
+
+  files.each do |f|
+    realfile = f["tempfile"].read
+    temp = CombinePDF.parse(realfile)
+    pdfFile << temp
+  end
+  pdfFile.save "final.pdf"
+
+  status 200
+  headers 'content-type' => "application/pdf"
+  body pdfFile.to_pdf
+end
+
+get '/infochange' do
+  if this == false
+    redirect '/'
+  end
+  if @@sig == false
+    redirect '/sign_in'
+  end
+  if @@curracc.logged == true
+    erb :infochange
+  end
+end
+post '/changed' do
+  if this == false
+    redirect '/'
+  end
+  if @@sig == false
+    redirect '/sign_in'
+  end
+  if @@curracc.logged == true
+    if (params["email"] && params["password"] && params["firstname"] && params["lastname"])
+      emai = params["email"]
+      pass = params["password"]
+      fir = params["firstname"]
+      las = params["lastname"]
+      if emai.length != 0 && pass.length != 0
+        @@curracc.email = emai
+        @@curracc.password = pass
+        @@curracc.fname = fir
+        @@curracc.lname = las
+        @@curracc.save
+      end
+      redirect '/accinfo'
+    end
+  end
 end
 get '/accinfo' do
   if this == false

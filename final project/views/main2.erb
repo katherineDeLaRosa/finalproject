@@ -25,10 +25,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
-</br>
-</br>
+<body style="margin-left: 10px;margin-top: 55px">
  <h1>Welcome <%= @@curracc.fname.capitalize %>! Ready to merge some files?</h1>
+ <p style="margin-left: 10px">To avoid mistakes with the positioning of pages, make sure to insert your files from Left to Right, Top to Bottom.</p>
+ <form method="POST" action="/upload" style="margin-left: 20px;margin-top: 10px" enctype="multipart/form-data">
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <button style="margin-top:10px" class="btn btn-primary" type="submit"> Merge </button>
+ </form>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
