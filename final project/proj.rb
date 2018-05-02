@@ -2,6 +2,8 @@ require 'sinatra'
 require 'data_mapper'
 require 'combine_pdf'
 
+enable :sessions
+
 # need install dm-sqlite-adapter
 # if on heroku, use Postgres database
 # if not use sqlite3 database I gave you
@@ -114,12 +116,15 @@ get '/account' do
   if this == false
     redirect '/'
   end
-  if @@sig == false
+
+  if @@sig == false 
     redirect '/sign_in'
   end
+
   if @@curracc.logged == true
     erb :main2
   end
+
 end
 get '/loggt' do
   if this == false
@@ -153,6 +158,7 @@ post '/created' do
   end
   redirect '/sign_in'
 end
+
 post '/signed' do
   u = User.first(email: params["email"])
   if u && u.password == params["password"]
@@ -172,4 +178,18 @@ get '/payment' do
 end
 post '/charge' do
 	"this is checking if vaild stripe would go here"
+end
+get '/noauth' do
+if !session[:times].nil?
+   session[:times] = session[:times] + 1
+else 
+  session[:times] = 0
+  erb :main2
+end
+
+if (session[:times] < 3 &&  @@sig = true)
+  erb :main2
+else 
+   redirect '/sign_in'
+end
 end
