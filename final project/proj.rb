@@ -1,8 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
 require 'combine_pdf'
-#links to info: https://github.com/guilhermesad/rspotify
-#https://github.com/icoretech/spotify-client
 
 # need install dm-sqlite-adapter
 # if on heroku, use Postgres database
