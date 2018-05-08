@@ -127,11 +127,13 @@ get '/account' do
 
 end
 get '/loggt' do
+  #false
   if this == false
     redirect '/'
   end
-  @@sig = false
-  @@curracc.logged = false
+  #both false
+  @@sig = true
+  @@curracc.logged = true
   redirect '/'
 end
 post '/created' do
