@@ -182,16 +182,20 @@ post '/charge' do
 	"this is checking if vaild stripe would go here"
 end
 get '/noauth' do
-if !session[:times].nil?
-   session[:times] = session[:times] + 1
-else 
-  session[:times] = 0
-  erb :main2
+  if !session[:times].nil?
+     session[:times] = session[:times] + 1
+  else 
+    session[:times] = 0
+    erb :main2
+  end
+
+  if (session[:times] < 3 &&  @@sig = true)
+    erb :main2
+  else 
+     redirect '/sign_in'
+  end
 end
 
-if (session[:times] < 3 &&  @@sig = true)
-  erb :main2
-else 
-   redirect '/sign_in'
-end
+get '/about_us' do
+  erb :aboutus
 end
