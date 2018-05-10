@@ -1,3 +1,6 @@
+require 'sinatra'
+require 'stripe'
+
 def new
 end
 
@@ -8,13 +11,6 @@ def create
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
     :source  => params[:stripeToken]
-  )
-
-  charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => @amount,
-    :description => 'Rails Stripe customer',
-    :currency    => 'usd'
   )
 
 #parts have been changed
@@ -28,4 +24,9 @@ charge = Stripe::Charge.create(
   )
 rescue Stripe::CardError => e
   erb :Errorstripe
+end
+
+end
+get '/' do 
+  create 
 end
