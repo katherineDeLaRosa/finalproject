@@ -34,7 +34,7 @@ DataMapper.finalize
 # automatically create the post table
 User.auto_upgrade!
 
-@@curracc = false
+@@curracc = nil
 this = false
 
 get '/' do
@@ -135,6 +135,7 @@ get '/loggt' do
   #both false
   @@sig = true
   @@curracc.logged = true
+  @@curracc = nil
   redirect '/'
 end
 

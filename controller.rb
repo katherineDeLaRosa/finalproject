@@ -17,19 +17,15 @@ def create
     :currency    => 'usd'
   )
 
-#this part is probably going to lead to an error
-#without keys i cannot alter
+#parts have been changed
 
-#begin 
-# risky code
-#rescue 
-#error fix
-#sends an error message
-#end
-
-
-
+begin 
+charge = Stripe::Charge.create(
+    :customer    => customer.id,
+    :amount      => @amount,
+    :description => 'Rails Stripe customer',
+    :currency    => 'usd'
+  )
 rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to new_charge_path
+  erb :Errorstripe
 end
