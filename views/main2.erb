@@ -1,0 +1,16 @@
+ <br/><br/> <br/>
+ <h1>Welcome <% if @curracc %> <%= @@curracc.fname.capitalize %> <% end %>! Ready to merge some files?</h1>
+ <p style="margin-left: 10px"> To avoid mistakes with the positioning of pages, make sure to insert your files from Left to Right, Top to Bottom.
+  <br/>
+  You have used this app <% if @times.nil? %>  0  <% else %> <%= @times %>  <% end %> time(s) </p>
+ <div class= "container">
+ <form method="POST" action="/upload" style="margin-left: 20px;margin-top: 10px" enctype="multipart/form-data">
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <input style="margin-top:3px" type="file" name="files[]"/>
+  <input type="file" name="files[]"/><br>
+  <button style="margin-top:10px" class="btn btn-primary" type="submit"> Merge </button>
+ </form>
+</div>
