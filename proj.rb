@@ -133,10 +133,12 @@ get '/loggt' do
     redirect '/'
   end
   #both false
-  @@sig = false
-  @@curracc.logged = false
+  @@sig = true
+  @@curracc.logged = true
   redirect '/'
 end
+
+
 post '/created' do
   if User.first(email: params["email"])
       redirect 'sign_up'
@@ -190,7 +192,7 @@ get '/noauth' do
     erb :main2
   end
 
-  if (session[:times] < 3 &&  @@sig = true)
+  if (session[:times] < 3 &&  @@sig == false)
     erb :main2
   else 
      redirect '/sign_in'
